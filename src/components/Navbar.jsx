@@ -8,7 +8,7 @@ function Navbar() {
 
       <ul className="nav-menu">
         <li className="nav-item">
-          <a href="/">My journey</a>
+          <a href="#about">My journey</a>
         </li>
         <li className="nav-item">
           <a href="/">My work</a>
