@@ -1,3 +1,5 @@
+/* Font */
+/* General styles */
 body {
   font-family: "Hanken Grotesk", sans-serif;
   background-color: #fefdf2;
@@ -6,23 +8,46 @@ body {
 }
 
 .layout-wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
+  width: 100%;
   height: 100vh;
+  overflow-y: scroll;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
 }
 
 section {
   width: 100%;
   height: 100vh;
+  scroll-snap-align: start;
+}
+
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .logo svg:hover {
   stroke: #5b6bbc;
 }
 
+/* Typography */
 h1 {
   font-size: 4rem;
+  font-weight: 700;
   line-height: 5rem;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 4.25rem;
+  color: #F4E1D8;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 a {
@@ -72,7 +97,7 @@ ul li {
   height: 3px;
   margin: 5px auto;
   transition: all 0.3s ease-in-out;
-  background-color: white;
+  background-color: #5b6bbc;
 }
 @media (max-width: 1000px) {
   .nav .nav-menu {
@@ -105,4 +130,24 @@ ul li {
   .nav .hamburger.active .bar:nth-child(3) {
     transform: rotate(45deg) translate(-6px, -4px);
   }
+}
+
+.intro h1 {
+  color: #EC753D;
+}
+.intro p {
+  font-size: 1.25rem;
+}
+
+.about {
+  color: #fefdf2;
+  background-color: #5b6bbc;
+}
+
+.case-study {
+  display: inline-block;
+  justify-content: space-between;
+  padding: 12px 22px 22px;
+  background-color: #fff;
+  box-shadow: 0px 8px 6px -6px rgba(235, 234, 242, 0.58);
 }/*# sourceMappingURL=styles.css.map */
