@@ -1,68 +1,100 @@
 /* Font */
 $font: "Hanken Grotesk", sans-serif;
-$white: #fefdf2;
-$purple: #5b6bbc;
+$primary: #fefdf2;
+$secondary: #7489ef;
+$secondary-dark: #3d5cbc;
+$secondary-light: #a8b9ff;
+$tertiary: #ec753d;
+$tertiary-light: #ff9c70;
+$on-primary: #3f3d36;
+$on-primary-light: #6a6760;
 
 /* General styles */
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: $font;
-  background-color: $white;
-  color: $purple;
+  background-color: $primary;
+  color: $secondary-dark;
   margin: 0 auto;
 }
-.layout-wrapper {
+/*.layout-wrapper {
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
-}
+}*/
 section {
-  width: 100%;
-  height: 100vh;
-  scroll-snap-align: start;
+ padding: 1.75em 0 6em;
 }
 .content {
   max-width: 1100px;
   margin: 0 auto;
 }
+
 .logo svg {
   &:hover {
-    stroke: $purple;
+    stroke: $secondary-dark;
   }
 }
 
 /* Typography */
 
 h1 {
-  font-size: 4rem;
+  font-size: 5rem; //80px
   font-weight: 700;
-  line-height: 5rem;
+  line-height: 5.625rem;
+  color: $tertiary;
   margin-bottom: 0;
 }
 
 h2 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 4.25rem;
-    color: #F4E1D8;
+  font-size: 3.5rem; //56px
+  font-weight: 600;
+  line-height: 4rem;
+  margin-bottom: 0;
 }
 
 p {
-    font-size: 1rem;
-    font-weight: 400;
+  font-size: 1.125rem; //18px
+  font-weight: 400;
+  line-height: 1.75rem;
 }
 
 a {
+  font-size: 1.125rem;
   text-decoration: none;
-  color: $purple;
+  color: $secondary-dark;
   cursor: pointer;
+  transition: color 0.5s;
+  &:hover {
+    color: $secondary-light;
+  }
 }
 
 .btn {
-  border: 1px solid $purple;
-  border-radius: 7px;
-  background-color: #e9eaf4;
+  color: $primary;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50px;
+  padding: 10px 34px;
+  transition: all 0.5s;
+}
+
+.btn--tertiary {
+  background-color: $tertiary;
+  border-color: $tertiary;
   &:hover {
+    color: $tertiary;
+    background-color: transparent;
+  }
+}
+.btn--secondary {
+  background-color: $secondary-dark;
+  border-color: $secondary-dark;
+  &:hover {
+    color: $secondary-dark;
     background-color: transparent;
   }
 }
@@ -82,11 +114,14 @@ ul {
   justify-content: space-between;
   height: 64px;
   padding: 24px 0;
+  .logo {
+    align-self: center;
+  }
   ul {
     display: flex;
     li {
       a {
-        padding: 8px 34px;
+        padding: 10px 34px;
       }
     }
   }
@@ -102,7 +137,12 @@ ul {
     height: 3px;
     margin: 5px auto;
     transition: all 0.3s ease-in-out;
-    background-color: $purple;
+    background-color: $secondary-dark;
+  }
+  @media screen and (min-width: 1001px) {
+    a.btn {
+      margin-left: 34px;
+    }
   }
 
   @media (max-width: 1000px) {
@@ -111,7 +151,7 @@ ul {
       left: -100%;
       top: 70px;
       flex-direction: column;
-      background-color: white;
+      background-color: $primary;
       width: 100%;
       padding: 24px 0;
       text-align: center;
@@ -141,23 +181,89 @@ ul {
 }
 
 .intro {
-    h1 {
-        color: #EC753D;
+  padding-bottom: 20em;
+  .intro_content {
+    padding-top: 4em;
+    max-width: 60%;
+    h2 {
+      font-size: 3rem;
+      font-weight: 500;
+      margin-top: 12px;
     }
-    p {
-        font-size: 1.25rem;
-       
-    }
+  }
 }
 .about {
-  color: $white;
-  background-color: $purple;
+  h2 {
+    color: $tertiary-light;
+    max-width: 500px;
+  }
+  p {
+    color: $primary;
+    max-width: 500px;
+    word-wrap: break-word;
+  }
+  a {
+    color: $primary;
+    text-decoration: underline;
+    transition: color 0.7s;
+    &:hover {
+      color: $tertiary-light;
+    }
+  }
+  background-color: $secondary-dark;
 }
 
-.case-study {
-    display: inline-block;
-    justify-content: space-between;
-    padding: 12px 22px 22px;
-    background-color: #fff;
-    box-shadow: 0px 8px 6px -6px rgb(235 234 242 / 58%);
+.work {
+  color: $secondary-dark;
+  background-color: $primary;
+  p {
+    margin-bottom: 4em;
+    max-width: 500px;
+  }
+  ul {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+  .case-study {
+    color: $secondary-dark;
+    background-color: white;
+    border-radius: 8px;
+    margin-right: 20px;
+    box-shadow: 15px 8px 6px -6px rgba(242,242,246,1);
+    transition: transform 0.3s;
+
+    figure {
+      background-color: #F4F4FB;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      margin: 0;
+      text-align: center;
+      padding: 34px;
+      img {
+        width: auto;
+        height: 80px;
+        object-fit: cover;
+      }
+      .visuallyhidden {
+        display: none;
+        overflow: hidden;
+      }
+    }
+    .case-study_content {
+      padding: 22px 12px;
+      span {
+        display: block;
+      }
+      a {
+        color: $secondary;
+      }
+    }
+    &:hover {
+      transform: translateY(-8px)
+    }
+  }
+}
+
+.contact {
+  background-color: $secondary-dark;
 }

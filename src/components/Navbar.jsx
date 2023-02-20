@@ -3,8 +3,8 @@ import Logo from "./Logo";
 
 function Navbar() {
   return (
-    <div className="nav">
-    <Logo/>
+    <div className="nav content">
+      <Logo />
 
       <ul className="nav-menu">
         <li className="nav-item">
@@ -14,8 +14,8 @@ function Navbar() {
           <a href="/">My work</a>
         </li>
         <li className="nav-item">
-          <a href="/" className="btn resume">
-          My resume
+          <a className="btn btn--secondary">
+            My resume
           </a>
         </li>
       </ul>

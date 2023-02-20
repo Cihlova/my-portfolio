@@ -1,24 +1,24 @@
 /* Font */
 /* General styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Hanken Grotesk", sans-serif;
   background-color: #fefdf2;
-  color: #5b6bbc;
+  color: #3d5cbc;
   margin: 0 auto;
 }
 
-.layout-wrapper {
+/*.layout-wrapper {
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
-  -ms-scroll-snap-type: y mandatory;
-      scroll-snap-type: y mandatory;
-}
-
+  scroll-snap-type: y mandatory;
+}*/
 section {
-  width: 100%;
-  height: 100vh;
-  scroll-snap-align: start;
+  padding: 1.75em 0 6em;
 }
 
 .content {
@@ -27,41 +27,66 @@ section {
 }
 
 .logo svg:hover {
-  stroke: #5b6bbc;
+  stroke: #3d5cbc;
 }
 
 /* Typography */
 h1 {
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 700;
-  line-height: 5rem;
+  line-height: 5.625rem;
+  color: #ec753d;
   margin-bottom: 0;
 }
 
 h2 {
   font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 4.25rem;
-  color: #F4E1D8;
+  font-weight: 600;
+  line-height: 4rem;
+  margin-bottom: 0;
 }
 
 p {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 400;
+  line-height: 1.75rem;
 }
 
 a {
+  font-size: 1.125rem;
   text-decoration: none;
-  color: #5b6bbc;
+  color: #3d5cbc;
   cursor: pointer;
+  transition: color 0.5s;
+}
+a:hover {
+  color: #a8b9ff;
 }
 
 .btn {
-  border: 1px solid #5b6bbc;
-  border-radius: 7px;
-  background-color: #e9eaf4;
+  color: #fefdf2;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50px;
+  padding: 10px 34px;
+  transition: all 0.5s;
 }
-.btn:hover {
+
+.btn--tertiary {
+  background-color: #ec753d;
+  border-color: #ec753d;
+}
+.btn--tertiary:hover {
+  color: #ec753d;
+  background-color: transparent;
+}
+
+.btn--secondary {
+  background-color: #3d5cbc;
+  border-color: #3d5cbc;
+}
+.btn--secondary:hover {
+  color: #3d5cbc;
   background-color: transparent;
 }
 
@@ -81,11 +106,14 @@ ul li {
   height: 64px;
   padding: 24px 0;
 }
+.nav .logo {
+  align-self: center;
+}
 .nav ul {
   display: flex;
 }
 .nav ul li a {
-  padding: 8px 34px;
+  padding: 10px 34px;
 }
 .nav .hamburger {
   display: none;
@@ -97,7 +125,12 @@ ul li {
   height: 3px;
   margin: 5px auto;
   transition: all 0.3s ease-in-out;
-  background-color: #5b6bbc;
+  background-color: #3d5cbc;
+}
+@media screen and (min-width: 1001px) {
+  .nav a.btn {
+    margin-left: 34px;
+  }
 }
 @media (max-width: 1000px) {
   .nav .nav-menu {
@@ -105,7 +138,7 @@ ul li {
     left: -100%;
     top: 70px;
     flex-direction: column;
-    background-color: white;
+    background-color: #fefdf2;
     width: 100%;
     padding: 24px 0;
     text-align: center;
@@ -132,22 +165,91 @@ ul li {
   }
 }
 
-.intro h1 {
-  color: #EC753D;
+.intro {
+  padding-bottom: 20em;
 }
-.intro p {
-  font-size: 1.25rem;
+.intro .intro_content {
+  padding-top: 4em;
+  max-width: 60%;
+}
+.intro .intro_content h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-top: 12px;
 }
 
 .about {
+  background-color: #3d5cbc;
+}
+.about h2 {
+  color: #ff9c70;
+  max-width: 500px;
+}
+.about p {
   color: #fefdf2;
-  background-color: #5b6bbc;
+  max-width: 500px;
+  word-wrap: break-word;
+}
+.about a {
+  color: #fefdf2;
+  text-decoration: underline;
+  transition: color 0.7s;
+}
+.about a:hover {
+  color: #ff9c70;
 }
 
-.case-study {
-  display: inline-block;
-  justify-content: space-between;
-  padding: 12px 22px 22px;
-  background-color: #fff;
-  box-shadow: 0px 8px 6px -6px rgba(235, 234, 242, 0.58);
+.work {
+  color: #3d5cbc;
+  background-color: #fefdf2;
+}
+.work p {
+  margin-bottom: 4em;
+  max-width: 500px;
+}
+.work ul {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.work .case-study {
+  color: #3d5cbc;
+  background-color: white;
+  border-radius: 8px;
+  margin-right: 20px;
+  box-shadow: 15px 8px 6px -6px rgb(242, 242, 246);
+  transition: transform 0.3s;
+}
+.work .case-study figure {
+  background-color: #F4F4FB;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin: 0;
+  text-align: center;
+  padding: 34px;
+}
+.work .case-study figure img {
+  width: auto;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.work .case-study figure .visuallyhidden {
+  display: none;
+  overflow: hidden;
+}
+.work .case-study .case-study_content {
+  padding: 22px 12px;
+}
+.work .case-study .case-study_content span {
+  display: block;
+}
+.work .case-study .case-study_content a {
+  color: #7489ef;
+}
+.work .case-study:hover {
+  transform: translateY(-8px);
+}
+
+.contact {
+  background-color: #3d5cbc;
 }/*# sourceMappingURL=styles.css.map */
