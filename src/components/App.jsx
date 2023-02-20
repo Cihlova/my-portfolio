@@ -22,8 +22,9 @@ function App() {
       <section id="intro" className="intro">
         <div className="content">
           <div className="intro_content">
-            <h1>Hello!</h1>
+            <h1 className="focus">Hello!</h1>
             <h2>I'm Anna, a passionate frontend developer.</h2>
+            <a href="/">Reach out and say hi!</a>
           </div>
         </div>
       </section>
@@ -62,11 +63,11 @@ function App() {
           <h2>My work</h2>
           <p>
             My goal, as a frontend developer, is to code responsive, fast, and
-            user friendly websites and web applications. I work hard to deliver
-            thoughtful and to a tee projects. Beyond that, I am excited to offer
-            creative and elegant solutions to any challenge.
+            user friendly websites and web applications. I&nbsp;work hard to
+            deliver thoughtful and to a tee projects. Beyond that, I&nbsp;am
+            excited to offer creative and elegant solutions to any challenge.
           </p>
-          <h3>Selected projects I have worked on in the past.</h3>
+          <h3>Selected projects I&nbsp;have worked on in the past.</h3>
           <ul>{studies.map(newStudy)}</ul>
         </div>
       </section>
