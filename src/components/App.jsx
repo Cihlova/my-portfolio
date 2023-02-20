@@ -18,7 +18,7 @@ function newStudy(study) {
 function App() {
   return (
     <div className="layout-wrapper">
-       <Navbar />
+      <Navbar />
       <section id="intro" className="intro">
         <div className="content">
           <div className="intro_content">
@@ -33,26 +33,27 @@ function App() {
             My journey began<br></br>7 years ago,
           </h2>
           <p>
-            when I typed my very first line of code. That was in high school. I
-            fell in love. I spent months on the Internet just reading and
-            watching content about HTML and CSS. Once I build my first website
-            from scratch, I knew that my journey as a coder has began.
+            when I&nbsp;typed my very first line of code. That was in high
+            school. I&nbsp;fell in love. I&nbsp;spent months on the Internet
+            just reading and watching content about HTML and CSS languages. And
+            while building my first website from scratch, I&nbsp;knew that my
+            journey as a coder has&nbsp;began.
           </p>
           <p>
-            I earned the basics, followed my passions, and got hired at a tech
-            company in Prague called{" "}
-            <a href="https://www.topmonks.com/">TopMonks</a>. I began as a
+            I&nbsp;earned the basics, followed my passions, and got hired at a
+            tech company in Prague called{" "}
+            <a href="https://www.topmonks.com/">TopMonks</a>. I&nbsp;began as a
             part-time frontend developer and evolved into a freelancer. At
-            TopMonks, I worked, both within a team or individually, on a variety
-            of <a href="#work">projects</a> using HTML, CSS/SCSS/SASS, and
-            JavaScript. I worked on E-commerce but also a small bussiness
-            websites. Apart from that, I also coded the company's website and
-            optimized their already existing work.
+            TopMonks, I&nbsp;worked, both within a team and individually, on a
+            variety of <a href="#work">projects</a> using HTML, CSS/SCSS/SASS,
+            and JavaScript. I&nbsp;worked on E-commerce but also small business
+            websites. Apart from that, I&nbsp;also coded TopMonks' project
+            websites and optimized their already existing&nbsp;work.
           </p>
           <p>
-            Currently, I am expanding my experience with React.js. I am also
-            enrolled in a Web Development Bootcamp to improve my skills as a
-            programmer.
+            Currently, I&nbsp;am expanding my experience in Node.js and
+            React.js. Along with that, in the last year I&nbsp;have been
+            creating beautiful and dynamic websites in Webflow.
           </p>
         </div>
       </section>
@@ -66,9 +67,7 @@ function App() {
             creative and elegant solutions to any challenge.
           </p>
           <h3>Selected projects I have worked on in the past.</h3>
-          <ul>
-            {studies.map(newStudy)}
-          </ul>
+          <ul>{studies.map(newStudy)}</ul>
         </div>
       </section>
       <section className="contact">
