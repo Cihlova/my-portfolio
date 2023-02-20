@@ -26,10 +26,6 @@ section {
   margin: 0 auto;
 }
 
-.logo svg:hover {
-  stroke: #3d5cbc;
-}
-
 /* Typography */
 h1 {
   font-size: 5rem;
@@ -98,6 +94,34 @@ ul li {
   font-size: 1.125rem;
 }
 
+.logo-animation {
+  transition: 0.3s;
+}
+
+.logo .logo-animation {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  -webkit-animation: dash 5s linear forwards;
+          animation: dash 5s linear forwards;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.logo:hover .logo-animation {
+  stroke: #3d5cbc;
+}
+
+@-webkit-keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 /* Navbar section */
 .nav {
   display: flex;
@@ -220,7 +244,7 @@ ul li {
   transition: transform 0.3s;
 }
 .work .case-study figure {
-  background-color: #F4F4FB;
+  background-color: #f4f4fb;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   margin: 0;
@@ -252,4 +276,20 @@ ul li {
 
 .contact {
   background-color: #3d5cbc;
+}
+
+.fixed-footer {
+  font-size: 16px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  height: 64px;
+  padding: 6px 0;
+  color: #fefdf2;
+  background-color: #ec753d;
+}
+.fixed-footer .content {
+  display: flex;
+  justify-content: space-between;
 }/*# sourceMappingURL=styles.css.map */
