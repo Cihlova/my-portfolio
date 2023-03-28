@@ -20,16 +20,20 @@ body {
   color: $secondary-dark;
   margin: 0 auto;
 }
-/*.layout-wrapper {
-  width: 100%;
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}*/
 section {
-  padding: 1.75em 0 6em;
+  padding-top: 1.7em;
 }
-.content {
+.layout-wrapper{
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+}
+.content{
+  scroll-snap-align: start;
+  height: 100vh;
+}
+.content,
+.mdc-layout-grid {
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -51,6 +55,18 @@ h2 {
   margin-bottom: 0;
 }
 
+h3 {
+  font-size: 1.125rem; //18px
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+h4 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
 p {
   font-size: 1.125rem; //18px
   font-weight: 400;
@@ -62,10 +78,10 @@ a {
   text-decoration: none;
   color: $secondary-dark;
   cursor: pointer;
-  transition: color 0.5s;
-  &:hover {
-    color: $secondary-light;
-  }
+  transition: all 0.35s;
+}
+table td {
+  font-size: 18px;
 }
 
 .btn {
@@ -74,7 +90,7 @@ a {
   border-style: solid;
   border-radius: 50px;
   padding: 10px 34px;
-  transition: all 0.5s;
+  transition: all 0.35s;
 }
 
 .btn--tertiary {
@@ -103,7 +119,7 @@ ul {
 }
 
 .logo-animation {
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .logo .logo-animation {
@@ -111,6 +127,11 @@ ul {
   stroke-dashoffset: 1000;
   animation: dash 5s linear forwards;
   animation-delay: 0.5s;
+}
+.link:hover .animation {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 5s linear forwards;
 }
 .logo:hover .logo-animation {
   stroke: $secondary-dark;
@@ -132,12 +153,14 @@ ul {
   .logo {
     align-self: center;
   }
-
   ul {
     display: flex;
     li {
       a {
         padding: 10px 34px;
+        &:hover {
+          color: $secondary-light;
+        }
       }
     }
   }
@@ -197,7 +220,9 @@ ul {
 }
 
 .intro {
-  padding-bottom: 20em;
+  .content {
+    display: flex;
+  }
   .intro_content {
     padding-top: 4em;
     max-width: 60%;
@@ -207,75 +232,161 @@ ul {
       margin-top: 12px;
     }
   }
-}
-.about {
-  h2 {
-    color: $tertiary-light;
-    max-width: 500px;
+  .intro_img img {
+    width: 50%;
+    height: auto;
   }
-  p {
-    color: $primary;
-    max-width: 500px;
-    word-wrap: break-word;
-  }
-  a {
-    color: $primary;
-    text-decoration: underline;
-    transition: color 0.35s;
+  .link {
+    color: $secondary-dark;
+    margin: 20px 0;
+    padding: 10px 0;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    span {
+      font-weight: 500;
+      font-size: 18px;
+    }
+    svg {
+      margin-left: 12px;
+      transition: all 0.5s;
+    }
+    svg path {
+      transition: all 0.5s;
+    }
     &:hover {
-      color: $tertiary-light;
+      color: $primary;
+      background-color: #ff9c70;
+      padding: 10px 26px;
+      border-radius: 50px;
+      svg {
+        margin-left: 18px;
+      }
+      svg path {
+        stroke: $primary;
+      }
     }
   }
+}
+.my-journey {
   background-color: $secondary-dark;
+  color: $primary;
+  h2,
+  p {
+    max-width: 500px;
+  }
+  h2 {
+    color: $tertiary-light;
+  }
+  p {
+    font-size: 1.25em;
+    line-height: 1.75;
+  }
+  a {
+    color: #ffb998;
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 30px;
+  }
+
+  svg {
+    display: block;
+    position: absolute;
+    padding: 0.3em 0;
+    overflow: hidden;
+    top: 16px;
+    left: 0px;
+    width: 100%;
+  }
+  a:hover .line,
+  a:focus .line {
+    stroke-dashoffset: 0;
+  }
+  .line {
+    stroke-dasharray: 160;
+    stroke-dashoffset: 160;
+    transition: stroke-dashoffset 1s ease;
+  }
+}
+.my-skills {
+  h4 {
+    position: relative;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #ffb998;
+    text-underline-offset: 0.4em;
+  }
+  table {
+    td {
+      line-height: 1.5;
+      &::before {
+        content: "\2022";
+        color: #ffb998;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+      }
+    }
+  }
 }
 
-.work {
+.my-work {
   color: $secondary-dark;
   background-color: $primary;
+  h2 {
+    color: $tertiary;
+  }
+  h2,
   p {
-    margin-bottom: 4em;
-    max-width: 500px;
+    max-width: 75%;
+  }
+  p {
+    margin-bottom: 4.5em;
   }
   ul {
     display: grid;
     grid-template-columns: auto auto auto;
+    gap: 20px;
   }
   .case-study {
-    color: $secondary-dark;
-    background-color: white;
-    border-radius: 8px;
-    margin-right: 20px;
-    box-shadow: 15px 8px 6px -6px rgba(242, 242, 246, 1);
-    transition: transform 0.3s;
-
-    figure {
-      background-color: #f4f4fb;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-      margin: 0;
-      text-align: center;
-      padding: 34px;
-      img {
-        width: auto;
-        height: 80px;
-        object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9fb;
+    box-shadow: 0 2px 23px 0 rgb(132 132 132 / 14%);
+    border-radius: 20px;
+    .case-study_link {
+      height: 240px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #f0f0fa;
+        text-align: center;
+        margin: 0;
+        padding-top: 10px;
+        width: 100%;
+        height: 120px;
+        img {
+          height: auto;
+          text-align: center;
+          object-fit: cover;
+        }
+        .visuallyhidden {
+          display: none;
+          overflow: hidden;
+        }
       }
-      .visuallyhidden {
-        display: none;
-        overflow: hidden;
+      .case-study_content {
+        padding: 16px 34px 32px;
+        span {
+          display: block;
+        }
       }
-    }
-    .case-study_content {
-      padding: 22px 12px;
-      span {
-        display: block;
-      }
-      a {
-        color: $secondary;
-      }
-    }
-    &:hover {
-      transform: translateY(-8px);
     }
   }
 }
@@ -285,16 +396,28 @@ ul {
 }
 
 .fixed-footer {
-  font-size: 16px;
   position: sticky;
   bottom: 0;
   width: 100%;
-  height: 64px;
+  height: 44px;
   padding: 6px 0;
-  color: $primary;
-  background-color: $tertiary;
+  background-color: $secondary;
+  p,
+  a {
+    font-size: 14px;
+    color: $primary;
+  }
   .content {
     display: flex;
     justify-content: space-between;
+    a.link {
+      color: $primary;
+      svg {
+        margin-left: 18px;
+        path {
+          stroke: $primary;
+        }
+      }
+    }
   }
 }

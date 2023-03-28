@@ -5,16 +5,15 @@ function Navbar() {
   return (
     <div className="nav content">
       <Logo />
-
       <ul className="nav-menu">
         <li className="nav-item">
           <a href="#about">My journey</a>
         </li>
         <li className="nav-item">
-          <a href="/">My work</a>
+          <a href="#work">My work</a>
         </li>
         <li className="nav-item">
-          <a className="btn btn--secondary">
+          <a href="#work" className="btn btn--secondary">
             My resume
           </a>
         </li>
